@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package calculator.v1;
+
+option go_package = "ConnectRPC-Demo/gen/calculator/v1;calculatorv1";
+
+message OperateRequest {
+  double number1 = 1;
+  double number2 = 2;
+}
+message OperateResponse {
+  double result = 1;
+}
+
+service CalculatorService {
+  rpc Add(OperateRequest) returns (OperateResponse);
+  rpc Subtract(OperateRequest) returns (OperateResponse);
+  rpc Multiply(OperateRequest) returns (OperateResponse);
+  rpc Divide(OperateRequest) returns (OperateResponse);
+}
